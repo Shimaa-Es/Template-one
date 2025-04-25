@@ -15,6 +15,7 @@
     --bg-dark: #666;
     --bg-white: #fff;
     --light-primary:#FAF3EA;
+    --section-padding: 60px;
 }
 /* global */
 /* start component */
@@ -152,13 +153,13 @@ ul li {
   .header .links ul li a {
     display: block;
     padding: 15px;
-    color: var(--dark-color);
+    color: var(--bg-dark);
     transition: 0.3s ease ease-in-out;
     text-decoration: none;
   }
   .header .links ul li a:hover {
     padding-left: 25px;
-    color: var(--bg-dark);
+    color: black;
     background-color: var(--primary-colork);
   }
   .header .links ul li:not(:last-child) a {
@@ -200,17 +201,25 @@ ul li {
 }
 /* feature */
 .feature{
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
   background-color: var(--light-primary);
 }
 .why-word{
  text-align: start;
-  margin-left: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 60px;
+}
+@media (max-width: 768px) {
+  .why-word{
+    text-align: center;
+    margin-left: 0;
+  }
 }
 .feature .container{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
 }
 .feature .feat{
@@ -244,6 +253,67 @@ ul li {
 }
 .srv i{
   color: var(--primary-color);
+  flex-basis: 60px;
+}
+.srv{
+  display: flex;
+  margin-bottom: 40px;
+}
+.srv .srv-text{
+  flex: 1;
+}
+.srv .srv-text h3{
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+.srv .srv-text p{
+  line-height: 1.6;
+  color: var(--bg-dark);
+  font-weight: 300px;
+}
+@media (max-width: 768px) {
+  .srv{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.imagg{
+  position: relative;
+  text-align: center;
+}
+.imagg::before {
+  content: "";
+  background-color: var(--primary-color);
+  width: 90px;
+  height: calc(100% + 70px);
+  position: absolute;
+  top: -40px;
+  left: -30px;
+  z-index: -1;
+  /* border-radius: 20px; */
+  
+}
+#image {
+  width: 350px;
+}
+@media(max-width: 1199px) {
+  .imagg{
+    display: none;
+    width: 0;
+    height: 0;
+}
 }
 
 /* end feature */
+/* testimonials */
+.testimonials{
+  padding-top:var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: #F7F7F7;
+}
+.testimonials .container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 80px;
+}
